@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operation.Flying.Deer.Api",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operation.Flying.Deer.Domain", "Operation.Flying.Deer.Domain\Operation.Flying.Deer.Domain.csproj", "{68CE9A02-B4F0-4F23-B634-32B6E1167E65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operation.Flying.Deer.Data", "Operation.Flying.Deer.Data\Operation.Flying.Deer.Data.csproj", "{0DFF2254-1538-4603-B49C-99D848F267A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{68CE9A02-B4F0-4F23-B634-32B6E1167E65}.Release|x64.Build.0 = Release|Any CPU
 		{68CE9A02-B4F0-4F23-B634-32B6E1167E65}.Release|x86.ActiveCfg = Release|Any CPU
 		{68CE9A02-B4F0-4F23-B634-32B6E1167E65}.Release|x86.Build.0 = Release|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Debug|x64.Build.0 = Debug|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Debug|x86.Build.0 = Debug|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Release|x64.ActiveCfg = Release|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Release|x64.Build.0 = Release|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Release|x86.ActiveCfg = Release|Any CPU
+		{0DFF2254-1538-4603-B49C-99D848F267A5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
