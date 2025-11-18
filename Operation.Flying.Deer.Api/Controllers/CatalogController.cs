@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Operation.Flying.Deer.Domain.Catalog;
 using Operation.Flying.Deer.Data;
 using Microsoft.EntityFrameworkCore;
@@ -77,6 +78,7 @@ namespace Operation.Flying.Deer.Api.Controllers
         }
         
         [HttpDelete("{id:int}")]
+        [Authorize("delete:catalog")]
         public IActionResult Delete(int id)
         {
             var item = _db.Items.Find(id);

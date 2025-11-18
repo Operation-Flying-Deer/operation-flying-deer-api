@@ -1,7 +1,16 @@
 using Operation.Flying.Deer.Data;
+using Operation.Flying.Deer.Api.Security;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+string authority = builder.Configuration["Auth0:Authority"] ??
+    throw new ArgumentNullException("Auth0:Authority");
+
+string audience = builder.Configuration["Auth0:Audience"] ??
+    throw new ArgumentNullException("Auth0:Audience");
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -18,6 +27,26 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.Authority = authority;
+    options.Audience = audience;
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("delete:catalog", policy =>
+        policy.Requirements.Add(new HasScopeRequirement("delete:catalog", authority)));
+});
+
+builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -32,6 +61,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
